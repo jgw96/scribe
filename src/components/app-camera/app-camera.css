@@ -1,0 +1,63 @@
+video {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+#resultsDiv {
+    position: fixed;
+    bottom: 0;
+    z-index: 99999;
+    background: #ffffffb3;
+    backdrop-filter: blur(14px);
+    padding: 1.2em;
+    border-radius: 14px 14px 0px 0px;
+    animation-name: slideup;
+    animation-duration: 300ms;
+    left: 0;
+    right: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    #resultsDiv {
+        background: #121212d9;
+    }
+}
+
+#resultsDiv h2 {
+    font-weight: bold;
+    font-size: large;
+}
+
+#resultsDiv p {
+    font-size: medium;
+}
+
+#textActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.8em;
+}
+
+#lines {
+    overflow-y: scroll;
+    height: 30vh;
+    overflow-x: auto;
+}
+
+.actionsButton {
+    margin-top: 21px;
+    margin-bottom: -11px;
+}
+
+@keyframes slideup {
+    from {
+        transform: translateY(500px);
+        opacity: 0.2;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

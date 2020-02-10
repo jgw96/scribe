@@ -1,0 +1,21 @@
+#detailImg {
+    border-radius: 12px;
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#detailTitle {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+#detailBody {
+    font-size: small;
+}
+
+#detailActions {
+    display: flex;
+    justify-content: space-around;
+    padding: 12px;
+}
