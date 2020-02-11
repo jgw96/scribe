@@ -17,6 +17,7 @@ export class AppCamera {
 
     @State() stream: MediaStream;
     @State() textLines: any[];
+    @State() caughtText: string;
 
     @State() copied: boolean = false;
 
@@ -65,6 +66,15 @@ export class AppCamera {
 
             (this.el.querySelector('video') as HTMLVideoElement).pause();
 
+            let text = "";
+
+            textLines.forEach((line) => {
+              text = text + line.text;
+            });
+
+            this.caughtText = text;
+            console.log(this.caughtText);
+
             await loading.dismiss();
         }, 2000)
     }
@@ -84,10 +94,7 @@ export class AppCamera {
     }
 
     private formatText() {
-        let textToCopy = '';
-        this.textLines.forEach((line) => {
-            textToCopy = textToCopy + line.text + "\n";
-        });
+        let textToCopy = this.el.querySelector('ion-textarea').value;
         return textToCopy;
     }
 
@@ -202,13 +209,8 @@ export class AppCamera {
                 {
                     this.textLines && this.textLines.length > 0 ? <div id="resultsDiv">
                         <h2>Text Captured</h2>
-                        <div id="lines">{
-                            this.textLines.map((line) => {
-                                return (
-                                    <div>{line.text}</div>
-                                )
-                            })
-                        }</div>
+                        
+                        <ion-textarea value={this.caughtText}></ion-textarea>
 
                         <div id="textActions">
                             {!this.copied ? <ion-fab-button onClick={() => this.copy()}><ion-icon name="copy-outline"></ion-icon></ion-fab-button> : <ion-fab-button color="secondary"><ion-icon name="checkmark-outline"></ion-icon></ion-fab-button>}

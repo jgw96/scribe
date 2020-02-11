@@ -6,3 +6,16 @@ ion-thumbnail {
     text-align: center;
     padding: 2.8em;
 }
+
+#notesList ion-item {
+  cursor: pointer;
+}
+
+@media(min-width: 1200px) {
+  #notesList {
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 2em;
+    border-radius: 12px;
+  }
+}

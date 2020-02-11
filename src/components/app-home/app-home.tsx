@@ -47,7 +47,7 @@ export class AppHome {
 
       <ion-content>
         {
-          this.notes ? <ion-list lines="none">
+          this.notes ? <ion-list id="notesList" lines="none">
             {this.notes.map((note) => {
               return (
                 <ion-item onClick={() => this.noteDetail(note)}>
@@ -62,16 +62,23 @@ export class AppHome {
               )
             })}
           </ion-list> : <div id="ctaBlock">
-            <h2>Welcome!</h2>
+              <h2>Welcome!</h2>
 
-            <p>To get started just point at some text you would like to save, Scribe will read and copy it for you!</p>
-          </div>
+              <p>To get started just point at some text you would like to save, Scribe will read and copy it for you!</p>
+            </div>
         }
-        <ion-fab vertical="bottom" horizontal="center">
+        {window.matchMedia("(min-width: 1200px)").matches ? 
+        <ion-fab vertical="bottom" horizontal="end">
           <ion-fab-button onClick={() => this.openCamera()} color="primary">
             <ion-icon name="eye-outline"></ion-icon>
           </ion-fab-button>
-        </ion-fab>
+        </ion-fab> : 
+        
+        <ion-fab vertical="bottom" horizontal="center">
+            <ion-fab-button onClick={() => this.openCamera()} color="primary">
+              <ion-icon name="eye-outline"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>}
       </ion-content>
     ];
   }
