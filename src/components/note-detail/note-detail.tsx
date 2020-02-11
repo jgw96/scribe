@@ -53,23 +53,34 @@ export class NoteDetail {
     }
 
     async download() {
-        const opts = {
-            type: 'saveFile',
-            accepts: [{
-                description: 'Text file',
-                extensions: ['txt'],
-                mimeTypes: ['text/plain'],
-            }],
-        };
-        const handle = await (window as any).chooseFileSystemEntries(opts);
+        if ((window as any).chooseFileSystemEntries) {
+            const opts = {
+                type: 'saveFile',
+                accepts: [{
+                    description: 'Text file',
+                    extensions: ['txt'],
+                    mimeTypes: ['text/plain'],
+                }],
+            };
+            const handle = await (window as any).chooseFileSystemEntries(opts);
 
-        const writer = await handle.createWriter();
-        // Write the full length of the contents
-        await writer.write(0, this.data.body);
-        // Close the file and write the contents to disk
-        await writer.close();
+            const writer = await handle.createWriter();
+            // Write the full length of the contents
+            await writer.write(0, this.data.body);
+            // Close the file and write the contents to disk
+            await writer.close();
+        }
+        else {
+            const file = new Blob([this.data.body], { type: 'text/plain' });
 
-        await this.close();
+            let a = document.createElement("a");
+            let url = URL.createObjectURL(file);
+            
+            a.href = url;
+            a.download = `${Math.random().toString()}`;
+            document.body.appendChild(a);
+            a.click();
+        }
     }
 
     render() {

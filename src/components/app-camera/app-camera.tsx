@@ -148,22 +148,36 @@ export class AppCamera {
 
     async download() {
         let textToCopy = this.formatText();
-        
-        const opts = {
-            type: 'saveFile',
-            accepts: [{
-                description: 'Text file',
-                extensions: ['txt'],
-                mimeTypes: ['text/plain'],
-            }],
-        };
-        const handle = await (window as any).chooseFileSystemEntries(opts);
 
-        const writer = await handle.createWriter();
-        // Write the full length of the contents
-        await writer.write(0, textToCopy);
-        // Close the file and write the contents to disk
-        await writer.close();
+        if ((window as any).chooseFileSystemEntries) {
+            const opts = {
+                type: 'saveFile',
+                accepts: [{
+                    description: 'Text file',
+                    extensions: ['txt'],
+                    mimeTypes: ['text/plain'],
+                }],
+            };
+            const handle = await (window as any).chooseFileSystemEntries(opts);
+
+            const writer = await handle.createWriter();
+            // Write the full length of the contents
+            await writer.write(0, textToCopy);
+            // Close the file and write the contents to disk
+            await writer.close();
+        }
+        else {
+            const file = new Blob([textToCopy], { type: 'text/plain' });
+
+            let a = document.createElement("a");
+            let url = URL.createObjectURL(file);
+            
+            a.href = url;
+            a.download = `${Math.random().toString()}`;
+            document.body.appendChild(a);
+            a.click();
+
+        }
     }
 
     async close() {
