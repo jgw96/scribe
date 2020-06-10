@@ -64,10 +64,10 @@ export class AppHome {
               )
             })}
           </ion-list> : <div id="ctaBlock">
-            <h2>Welcome!</h2>
+              <h2>Welcome!</h2>
 
-            <p>To get started just point at some text you would like to save, Scribe will read and copy it for you!</p>
-          </div>
+              <p>To get started just point at some text you would like to save, Scribe will read and copy it for you!</p>
+            </div>
         }
         <ion-fab vertical="bottom" horizontal="end">
           <ion-fab-button onClick={() => this.openCamera()} color="primary">
