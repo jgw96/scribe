@@ -36,6 +36,17 @@
       "type": "image/png"
     }
   ],
+  "screenshots": [
+    {
+      "src": "assets/screenshots/screen1.png"
+    },
+    {
+      "src": "assets/screenshots/screen2.png"
+    },
+    {
+      "src": "assets/screenshots/screen3.png"
+    }
+  ],
   "background_color": "#428cff",
   "theme_color": "#428cff"
 }

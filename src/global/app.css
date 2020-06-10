@@ -30,6 +30,10 @@
   https://ionicframework.com/docs/theming/color-generator
 */
 
+.header-md::after {
+  display: none;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --ion-color-primary: #428cff;

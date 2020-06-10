@@ -6,3 +6,34 @@ ion-thumbnail {
     text-align: center;
     padding: 2.8em;
 }
+
+pwa-install {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  --install-button-color: var(--ion-color-primary);
+}
+
+@media (min-width: 800px) {
+  ion-list#notesList {
+    margin-left: 14em;
+    margin-right: 14em;
+    margin-top: 1em;
+    border-radius: 6px;
+  }
+}
+
+@media (min-width: 1290px) {
+  ion-list#notesList {
+    margin-left: 22em;
+    margin-right: 22em;
+    margin-top: 1em;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  ion-list#notesList {
+    border-radius: 14px 14px 0 0;
+  }
+}
