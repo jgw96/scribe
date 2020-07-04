@@ -237,7 +237,7 @@ export class AppCamera {
         }
 
         <ion-fab vertical="bottom" horizontal="center">
-          <ion-fab-button onClick={() => this.takePicture()} color="secondary">
+          <ion-fab-button onClick={() => this.takePicture()} color="primary">
             <ion-icon name="camera"></ion-icon>
           </ion-fab-button>
         </ion-fab>

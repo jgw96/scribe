@@ -105,11 +105,11 @@ export class NoteDetail {
 
             <ion-footer>
                 <ion-toolbar>
-                    <div id="detailActions">
-                        {!this.copied ? <ion-fab-button onClick={() => this.copy()}><ion-icon name="copy-outline"></ion-icon></ion-fab-button> : <ion-fab-button color="secondary"><ion-icon name="checkmark-outline"></ion-icon></ion-fab-button>}
-                        <ion-fab-button onClick={() => this.share()}><ion-icon name="share-outline"></ion-icon></ion-fab-button>
-                        <ion-fab-button onClick={() => this.download()}><ion-icon name="download-outline"></ion-icon></ion-fab-button>
-                    </div>
+                    <ion-buttons slot="end">
+                        {!this.copied ? <ion-button color="primary" onClick={() => this.copy()}><ion-icon slot="start" name="copy-outline"></ion-icon> Copy</ion-button> : <ion-button color="secondary"><ion-icon name="checkmark-outline" slot="start"></ion-icon> Copied!</ion-button>}
+                        <ion-button color="primary" onClick={() => this.download()}><ion-icon name="download-outline" slot="start"></ion-icon> Download</ion-button>
+                        <ion-button color="success" onClick={() => this.share()}><ion-icon name="share-outline" slot="start"></ion-icon> Share</ion-button>
+                    </ion-buttons>
                 </ion-toolbar>
             </ion-footer>
         ]

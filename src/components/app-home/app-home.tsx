@@ -44,6 +44,14 @@ export class AppHome {
       <ion-header>
         <ion-toolbar>
           <ion-title>Notes</ion-title>
+
+          <ion-buttons slot="end">
+            <ion-button color="primary" id="desktopCam" onClick={() => this.openCamera()} fill="clear">
+              <ion-icon slot="start" name="eye-outline"></ion-icon>
+
+              Copy Text
+            </ion-button>
+          </ion-buttons>
         </ion-toolbar>
       </ion-header>,
 
@@ -69,7 +77,7 @@ export class AppHome {
               <p>To get started just point at some text you would like to save, Scribe will read and copy it for you!</p>
             </div>
         }
-        <ion-fab vertical="bottom" horizontal="end">
+        <ion-fab id="cameraButton" vertical="bottom" horizontal="end">
           <ion-fab-button onClick={() => this.openCamera()} color="primary">
             <ion-icon name="eye-outline"></ion-icon>
           </ion-fab-button>

@@ -2,7 +2,12 @@
     border-radius: 12px;
     height: 280px;
     width: 100%;
-    object-fit: cover;
+}
+
+@media (min-width: 1200px) {
+  #detailImg {
+    object-fit: contain;
+  }
 }
 
 #detailTitle {

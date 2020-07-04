@@ -19,7 +19,24 @@ pwa-install {
     margin-left: 14em;
     margin-right: 14em;
     margin-top: 1em;
-    border-radius: 6px;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+  }
+
+  ion-list#notesList ion-item {
+    border-radius: 10px;
+  }
+
+  @media (prefers-color-scheme: light) {
+    ion-list#notesList ion-item {
+      border: solid 2px #428cff;
+    }
+  }
+
+  #cameraButton {
+    display: none;
   }
 }
 
@@ -28,12 +45,16 @@ pwa-install {
     margin-left: 22em;
     margin-right: 22em;
     margin-top: 1em;
-    border-radius: 6px;
+    border-radius: 10px;
   }
 }
 
 @media (max-width: 600px) {
   ion-list#notesList {
     border-radius: 14px 14px 0 0;
+  }
+
+  #desktopCam {
+    display: none;
   }
 }
